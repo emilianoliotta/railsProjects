@@ -1,0 +1,2 @@
+module VictimasIndexHelper
+end

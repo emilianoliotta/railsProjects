@@ -1,0 +1,16 @@
+<h1>Monstruo: <%= @monstruo.nombre %></h1>
+<h2>Descripcion:</h2>
+<h4>
+	<blockquote>
+		<p><%= @monstruo.descripcion %>.</p>
+	</blockquote>
+</h4>
+<h3>Tweets:</h3>
+<table class="table">
+	<% @monstruo.tweets.each do |tw| %>
+		<tr>
+		  <td><%= tw.estado %></td>
+		  <td><%= link_to "Eliminar", tw, method: :delete, class: 'btn btn-danger btn-xs', data:{confirm:'Estás seguro?'} %></td>
+		</tr>
+	<% end %>
+</table>

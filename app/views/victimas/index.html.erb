@@ -1,0 +1,33 @@
+<h1> Listado de Victimas </h1>
+
+<table class="table">
+
+	<tr>
+		<th>Nombre </th>
+		<th>Edad </th>
+		<th>Victima de </th>
+		<th></th>
+	</tr>
+
+	<% @victimas.each do |v| %>
+		<tr>
+			<td>
+				<%= link_to v.nombre, v %>
+			</td>
+			<td>
+				<%= v.edad %>
+			</td>
+			<td>
+				<%= Monstruo.find(v.monstruo_id).nombre %>
+			</td>
+			<td>
+				<%= link_to "Eliminar", v, method: :delete, class: 'btn btn-danger btn-sm', data:{confirm:'Estás seguro?'} %>
+			</td>	
+		</tr>
+	<% end %>
+
+	<% if @victimas.size == 0 %>
+		<tr> <td colspan="3"> No hay victimas. </td> </tr>
+	<% end %>
+
+</table>
