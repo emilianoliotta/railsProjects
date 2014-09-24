@@ -6,6 +6,7 @@ class MonstruosController < ApplicationController
 
 
 	def index
+		@monstruos = Monstruo.all
 	end
 
 	def show

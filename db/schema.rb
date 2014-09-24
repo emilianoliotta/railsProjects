@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140915170637) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "monstruos", force: true do |t|
     t.string   "nombre"
     t.datetime "created_at"
@@ -22,7 +25,7 @@ ActiveRecord::Schema.define(version: 20140915170637) do
   end
 
   create_table "tweets", force: true do |t|
-    t.text     "estado",      limit: 255
+    t.text     "estado"
     t.integer  "monstruo_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -45,8 +48,8 @@ ActiveRecord::Schema.define(version: 20140915170637) do
     t.string   "last_name"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "victimas", force: true do |t|
     t.string   "nombre"
