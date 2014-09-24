@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'hirb'
 
+gem 'rails_12factor'
+
 gem 'tzinfo'
 gem 'tzinfo-data'
 
