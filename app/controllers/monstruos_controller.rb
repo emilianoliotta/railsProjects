@@ -1,7 +1,9 @@
 class MonstruosController < ApplicationController
 
+	before_action :authenticate_user!, only: [:show, :destroy, :edit]
 	before_action :get_monstruo, only: [:show, :edit, :destroy]
 	before_action :verify_tweets, only: [:show]
+
 
 	def index
 	end

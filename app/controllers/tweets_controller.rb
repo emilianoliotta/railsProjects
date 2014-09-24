@@ -1,6 +1,9 @@
 # encoding = utf-8
 class TweetsController < ApplicationController
   
+
+  before_action :authenticate_user!, only: [:show, :new, :destroy]
+
   def new
   	@tweet = Tweet.new
   end
